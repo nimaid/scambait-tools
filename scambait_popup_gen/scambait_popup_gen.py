@@ -16,7 +16,7 @@ else:
     PATH = PROG_PATH
 
 # Get and randomize links
-scam_links_filename = os.path.join(PATH, 'test.txt')
+scam_links_filename = os.path.join(PATH, 'scambait_megalist.txt')
 with open(scam_links_filename, 'r') as f:
     read_links = f.read().splitlines()
 scam_links = []
@@ -57,7 +57,7 @@ if run_gen == 'N':
 
 for i, scam_link in enumerate(scam_links):
     print('')
-    print('Opening link {}: {}'.format(i+1, scam_link))
+    print('Opening link {}/{}: {}'.format(i+1, len(scam_links), scam_link))
     reopen = True;
     while reopen:
         webbrowser.open_new(scam_link)
@@ -68,9 +68,8 @@ for i, scam_link in enumerate(scam_links):
         elif user_resp == 'N':
             reopen = False
         else:
-            print('Exiting...\n')
-            exit()
+            sys.exit('Exiting...')
 
 print('\n\nAll links exausted.')
 pause("Press any key to exit...")
-print('Exiting...\n')
+sys.exit('Exiting...')
