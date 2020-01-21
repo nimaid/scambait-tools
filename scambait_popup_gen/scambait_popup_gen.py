@@ -32,28 +32,44 @@ print('!!! THESE LINKS MAY INSTALL MALWARE, USE WITH EXTREME CAUTION !!!')
 print('\nMany of these links will not redirect to malicious websites unless you appear as a naive, vulnerable user.')
 print('Make sure you are using Internet Explorer, your VPN is off, and your web protections are turned off.')
 
-def ask_question(question='Y/N', options=['Y', 'N'], default=None):
-    options = [x.upper() for x in options]
-    default = default.upper()
+def ask_question(question='Please choose', options=['Y', 'N'], default=None):
+    opt_list = []
+    for opt in options:
+        if opt not in opt_list:
+            opt_list.append(opt)
+    opt_list = [x.upper() for x in opt_list]
+    if len(opt_list) < 1:
+        raise Exception('No options provided!')
+    if default != None:
+        default = default.upper()
+        if default not in opt_list:
+            raise Exception('Default value is invalid!')
+    opt_string = ''
+    for i,opt in enumerate(opt_list):
+        if opt == default:
+            opt_string += '[' + opt + ']'
+        else:
+            opt_string += opt
+        if i+1 < len(opt_list):
+            opt_string += '/'
     answer = None
-    error_string = 'Please enter one of the following:'
-    while answer not in options:
-        answer = input(question + ': ').strip().upper()
-        if answer in options:
+    error_string = 'That is not a valid option.'
+    while answer not in opt_list:
+        answer = input(question + ' ({}): '.format(opt_string)).strip().upper()
+        if answer in opt_list:
             return answer
         else:
             if answer == '':
-                if (default == None) or (default not in options):
-                    print(error_string, options)
+                if (default == None) or (default not in opt_list):
+                    print(error_string)
                 else:
                     return default
             else:
-                print(error_string, options)
+                print(error_string)
 
-run_gen = ask_question(question='\nDo you wish to continue with opening malicious links? (Y/[N])', default='N')
+run_gen = ask_question(question='\nDo you wish to continue with opening malicious links?', default='N')
 if run_gen == 'N':
-    print('Exiting...\n')
-    exit()
+    sys.exit('Exiting...')
 
 for i, scam_link in enumerate(scam_links):
     print('')
@@ -61,7 +77,7 @@ for i, scam_link in enumerate(scam_links):
     reopen = True;
     while reopen:
         webbrowser.open_new(scam_link)
-        user_resp = ask_question(question='[R]e-open current link, [N]ext link, or [Q]uit? (R/N/[Q])', options=['R','N','Q'], default='Q')
+        user_resp = ask_question(question='[R]e-open current link, [N]ext link, or [Q]uit?', options=['R','N','Q'], default='Q')
         if user_resp == 'R':
             print('Re-opening {}'.format(scam_link))
             reopen = True
