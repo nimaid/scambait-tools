@@ -79,6 +79,6 @@ goto HARDEND
 END:
 echo Shutting down...
 timeout 3
-shutdown /s /f /t 0
+call shutdown /p /f
 
 :HARDEND
