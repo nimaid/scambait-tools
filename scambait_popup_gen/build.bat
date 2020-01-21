@@ -13,3 +13,4 @@ call conda run -n scambait_popup_gen pyinstaller ^
     scambait_popup_gen.py
 
 cd %ORIGDIR%
+pause
