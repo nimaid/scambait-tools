@@ -1,8 +1,8 @@
 @echo off
-set ORIGDIR=%CD%
-set SCRIPTDIR=%~dp0
+set ORIGDIR="%CD%"
+set SCRIPTDIR="%~dp0"
 
-cd %SCRIPTDIR%
+cd "%SCRIPTDIR%"
 
 echo Building portable EXE...
 call conda run -n scambait_popup_gen pyinstaller ^
@@ -12,5 +12,5 @@ call conda run -n scambait_popup_gen pyinstaller ^
     --icon=scambait_popup_gen.ico ^
     scambait_popup_gen.py
 
-cd %ORIGDIR%
+cd "%ORIGDIR%"
 pause

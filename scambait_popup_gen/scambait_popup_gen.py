@@ -9,9 +9,14 @@ print('\n!!! ONLY USE THIS INSIDE A VIRTUAL MACHINE !!!')
 print('!!! THESE LINKS MAY INSTALL MALWARE, USE WITH EXTREME CAUTION !!!')
 print('\nMany of these links will not redirect to malicious websites unless you appear as a naive, vulnerable user.')
 print('Because of this, all links will be opened with Internet Explorer.')
-print('You must also make sure your VPN is off, and all web shields are turned off (client AND host machines).')
+print('You must also make sure your VPN is off, and that all web shields are turned off (client AND host machines).')
+print('\nIf you do find a live scam site, be warned that the original link may only re-direct to a malicious site a certain')
+print('number of times before it will start re-directing to an innocuous site.')
+print('If this happens to you, it will usually start redirecting to the scam site again after some time.')
+print('Meanwhile, try the next link.')
 
-run_gen = ask_question(question='\nDo you wish to continue with opening malicious links?', default='N')
+print()
+run_gen = ask_question(question='Do you wish to continue with opening malicious links?', default='N')
 if run_gen == 'N':
     sys.exit('Exiting...')
 
