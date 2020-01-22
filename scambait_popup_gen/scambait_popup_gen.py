@@ -1,6 +1,7 @@
 import webbrowser
 import random
 import os, sys
+import subprocess
 from getch import pause
 from ask_question import ask_question
 
@@ -46,6 +47,10 @@ random.shuffle(scam_links)
 # Use Internet Explorer to open links
 ie = ie = webbrowser.get('C:\\Program Files\\Internet Explorer\\iexplore.exe')
 
+devnull = open(os.devnull, 'w')
+def close_all_ie():
+    sts = subprocess.call('taskkill /F /IM iexplore.exe /T', shell=True, stdout=devnull, stderr=devnull)
+
 # Loop through randomized links
 for i, scam_link in enumerate(scam_links):
     scam_link = "http://" + scam_link
@@ -53,6 +58,7 @@ for i, scam_link in enumerate(scam_links):
     print('Opening link {}/{}: {}'.format(i+1, len(scam_links), scam_link))
     reopen = True;
     while reopen:
+        close_all_ie()
         ie.open_new(scam_link)
         user_resp = ask_question(question='[R]e-open current link, [N]ext link, or [Q]uit?', options=['R','N','Q'], default='Q')
         if user_resp == 'R':
