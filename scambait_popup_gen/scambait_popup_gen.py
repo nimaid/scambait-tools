@@ -45,7 +45,7 @@ for link in read_links:
 random.shuffle(scam_links)
 
 # Use Internet Explorer to open links
-ie = ie = webbrowser.get('C:\\Program Files\\Internet Explorer\\iexplore.exe')
+ie = webbrowser.get('C:\\Program Files\\Internet Explorer\\iexplore.exe')
 
 devnull = open(os.devnull, 'w')
 def close_all_ie():
