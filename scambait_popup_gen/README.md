@@ -22,6 +22,9 @@ The script performs the following tasks, in order:
 ## Is it safe?
 **Hell no!** It opens malicious links by design. However, that is literally it's only function, and so otherwise it's perfectly safe. [A couple obscure anti-viruses pick the compiled `.exe` up](https://www.virustotal.com/gui/file/8d5450672aac59f93109fee87af0d6eaa4e6a2038641016edbe19161d1c39881/detection), but I'm guessing that's due to it, you know, opening malicious links and all. If you're super paranoid, you can either install Python 3 on your VM or just compile the `.exe` yourself. This repo includes a Conda environment and a `build.bat` script which outputs the `.exe` to the `dist` folder it creates.
 
+## Where do I download the pre-built .exe?
+[Here.](https://github.com/nimaid/scambait-tools/releases/latest) All you need is that one `.exe` file.
+
 ## I'm not getting any tech support popups! Just "this domain is for sale", "buy this software", or legitimate sites!
 These sites are clever, and will not redirect to the live scam popups unless you look "dumb and vulnerable". Otherwise, they will redirect just to squatter sites, scam software sites, affiliate links, or a legitimate website
 
