@@ -11,7 +11,7 @@ The script performs the following tasks, in order:
 * It displays some information and asks the user if they want to continue (defaults to no).
   * It firstly warns that this is a program that opens malicious links as it's primary purpose, and to only run in a VM.
   * It also gives advice on how to set up ideal conditions to get scam popups, as the redirect sites will only go to popups if you look "dumb and vulnerable".
-* If the user entered chose to continue, links are randomized and `iexplore.exe` will be invoked with the first URL.
+* If the user chose to continue, links are randomized and `iexplore.exe` will be invoked with the first URL.
   * The compiled version has the URL list built in.
 * It will prompt the user if they wish to re-open the current link, open the next link, or to quit (default).
   * If link is re-opened, `iexplore.exe` is first killed and then re-invoked with the same URL.
