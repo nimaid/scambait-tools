@@ -14,7 +14,7 @@ The script performs the following tasks, in order:
 * If the user choses to continue, links are randomized and `iexplore.exe` will be invoked with the first URL.
   * The compiled version has the URL list built in.
 * It will prompt the user if they wish to re-open the current link, open the next link, or to quit (default).
-  * If link is re-opened, `iexplore.exe` is first killed and then re-invoked with the same URL.
+  * If the current link is re-opened, `iexplore.exe` is first killed and then re-invoked with the same URL.
   * If the next link is opened, `iexplore.exe` is first killed and then re-invoked with the next URL.
   * If the program is quit, then it will quickly close and leave the current `iexplore.exe` processes running.
 * If all links are exhausted, the program will inform the user and then close after the user presses any key
